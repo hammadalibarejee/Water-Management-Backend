@@ -11,11 +11,15 @@ try {
 const logSchema = new mongoose.Schema({
   status: {
     type: Number,
-    operationDate: {
-      type: Date,
-      default: Date.now,
-    },
+  },
+  date: {
+    type: Date,
+    default: Date.now(),
   },
 });
+
+// logSchema.pre("save", async function (next) {
+//   this.date = Date.now();
+// });
 const logs = mongoose.model("logs", logSchema);
 module.exports = logs;

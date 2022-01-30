@@ -37,24 +37,22 @@ exports.showLogsById = async (req, res) => {
   });
 };
 exports.createLog = async (req, res) => {
-    if (!req.body.status){
-        return res.status(400).json({
-            message:'Invalid data'
-        })
-    }
-    let newLog= new logs(req.body);
-    let result= await newLog.save();
-    if (!result){
-        return res.status(500).json({
-            message:'Error while creating the logs'
-        })
-    }
-    res.status(200).json({
-        message:'Created Successfully',
-        data:{
-            result
-        }
-    })
-
+  if (!req.body.status) {
+    return res.status(400).json({
+      message: "Invalid data",
+    });
+  }
+  let newLog = new logs(req.body);
+  let result = await newLog.save();
+  if (!result) {
+    return res.status(500).json({
+      message: "Error while creating the logs",
+    });
+  }
+  res.status(200).json({
+    message: "Created Successfully",
+    data: {
+      result,
+    },
+  });
 };
-
