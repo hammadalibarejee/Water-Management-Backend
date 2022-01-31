@@ -12,6 +12,9 @@ const logSchema = new mongoose.Schema({
   status: {
     type: Number,
   },
+  time:{
+    type:String,
+  },
   date: {
     type: Date,
     default: Date.now(),
