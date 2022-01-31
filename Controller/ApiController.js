@@ -56,3 +56,14 @@ exports.createLog = async (req, res) => {
     },
   });
 };
+exports.cleanDB = async (req, res) => {
+  let result = await logs.deleteMany({});
+  if (!result) {
+    return res.status(500).json({
+      message: "Can't the DB",
+    });
+  }
+  return res.status(200).json({
+    message: "Deleted",
+  });
+};
