@@ -15,5 +15,6 @@ router.route("/v2/logs")
     .delete(ApiController.cleanDBV2);
 
 router.route("/v2/log/:id")
-    .get(ApiController.showLogsByIdV2);    
+    .get(ApiController.showLogsByIdV2)  
+    .delete(ApiController.deleteByIdV2); 
 module.exports = router;

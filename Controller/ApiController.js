@@ -134,3 +134,15 @@ exports.cleanDBV2 = async (req, res) => {
     message: "Deleted",
   });
 };
+exports.deleteByIdV2=async(req,res)=>{
+  let id =req.params.id;
+  let result= await logsV2.deleteOne({_id:id});
+  if (!result){
+    return res.status(500).json({
+      message:"Can't Delete"
+    })
+  }
+  return res.status(200).json({
+    message:"Deleted Successfully",
+  })
+}
