@@ -9,5 +9,11 @@ router.route("/logs")
 
 router.route("/log/:id")
     .get(ApiController.showLogsById);
+router.route("/v2/logs")
+    .get(ApiController.showLogsV2)
+    .post(ApiController.createLogV2)
+    .delete(ApiController.cleanDBV2);
 
+router.route("/v2/log/:id")
+    .get(ApiController.showLogsByIdV2);    
 module.exports = router;
