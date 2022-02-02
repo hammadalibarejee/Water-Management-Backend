@@ -2,16 +2,16 @@ const mongoose = require("mongoose");
 
 const logSchemaV2 = new mongoose.Schema({
   status: {
-    type: Number,
-    required: [true, 'Status must be defined']
+    type: String,
+    // required: [true, 'Status must be defined']
   },
   time:{
     type:String,
-    required: [true, 'Time must be defined']
+    // required: [true, 'Time must be defined']
   },
   date: {
-    type: Date,
-    required: [true, 'Date must be defined']
+    type: String,
+    // required: [true, 'Date must be defined']
   },
 });
 
