@@ -5,6 +5,11 @@ const logs = require("./../Model/model");
 
 exports.showLogs = async (req, res) => {
   let result = await logs.find();
+  if (!result) {
+    return res.status(500).json({
+      message: "Internal Server Error",
+    });
+  }
   res.status(200).json({
     message: "Success",
     data: {
@@ -67,11 +72,6 @@ exports.showLogsByIdV2 = async (req, res) => {
   });
 };
 exports.createLog = async (req, res) => {
-  if (!req.body.status) {
-    return res.status(400).json({
-      message: "Invalid data",
-    });
-  }
   let newLog = new logs(req.body);
   let result = await newLog.save();
   if (!result) {
