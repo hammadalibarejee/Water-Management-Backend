@@ -92,10 +92,6 @@ exports.createLog = async (req, res) => {
   });
 };
 exports.createLogV2 = async (req, res) => {
-  return res.status(400).json({
-    message: "Invalid data",
-  });
-
   let newLog = new logsV2(req.body);
   let result = await newLog.save();
   if (!result) {
