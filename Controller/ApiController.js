@@ -92,11 +92,10 @@ exports.createLog = async (req, res) => {
   });
 };
 exports.createLogV2 = async (req, res) => {
-  if (!req.body.status) {
-    return res.status(400).json({
-      message: "Invalid data",
-    });
-  }
+  return res.status(400).json({
+    message: "Invalid data",
+  });
+
   let newLog = new logsV2(req.body);
   let result = await newLog.save();
   if (!result) {
@@ -134,15 +133,15 @@ exports.cleanDBV2 = async (req, res) => {
     message: "Deleted",
   });
 };
-exports.deleteByIdV2=async(req,res)=>{
-  let id =req.params.id;
-  let result= await logsV2.deleteOne({_id:id});
-  if (!result){
+exports.deleteByIdV2 = async (req, res) => {
+  let id = req.params.id;
+  let result = await logsV2.deleteOne({ _id: id });
+  if (!result) {
     return res.status(500).json({
-      message:"Can't Delete"
-    })
+      message: "Can't Delete",
+    });
   }
   return res.status(200).json({
-    message:"Deleted Successfully",
-  })
-}
+    message: "Deleted Successfully",
+  });
+};
