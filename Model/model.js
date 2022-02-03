@@ -10,10 +10,10 @@ try {
 
 const logSchema = new mongoose.Schema({
   status: {
-    type: Number,
+    type: Boolean,
   },
-  time:{
-    type:String,
+  time: {
+    type: String,
   },
   date: {
     type: Date,
