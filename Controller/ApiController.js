@@ -5,11 +5,6 @@ const logs = require("./../Model/model");
 
 exports.showLogs = async (req, res) => {
   let result = await logs.find();
-  if (!result) {
-    return res.status(500).json({
-      message: "Internal Server Error",
-    });
-  }
   res.status(200).json({
     message: "Success",
     data: {
